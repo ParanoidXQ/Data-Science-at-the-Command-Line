@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Jeroen Janssens" />
     <meta name="keywords" content="data science, command line, linux, bash, jq, csv, csvkit, json, unix, " />
-    <meta name="description" content="A virtual environment that allows you to start doing data science in a matter of minutes." />
+    <meta name="description" content="" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@jeroenhjanssens" />
     <meta name="twitter:domain" content="datascienceatthecommandline.com" />
@@ -15,9 +15,9 @@
     <meta name="twitter:title" content="Data Science at the Command Line" />
     <meta name="twitter:url" content="http://datascienceatthecommandline.com" />
     <meta name="twitter:description" content="" />
-    <meta name="twitter:image:src" content="" />
+    <meta name="twitter:image:src" content="http://datascienceatthecommandline.com/assets/img/data-science-at-the-command-line.png" />
     <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="http://datascienceatthecommandline.com/assets/img/data-science-at-the-command-line.png" />
     <meta property="og:site_name" content="Data Science at the Command Line" />
     <meta property="og:title" content="Data Science at the Command Line" />
     <meta property="og:type" content="website" />
@@ -35,21 +35,46 @@
   </h1>
   <div class="row">
     <div class="col-xs-12 col-md-5">
-      <a class="pull-left" href="http://datascienceatthecommandline.com"><img class="media-object" src="assets/img/data-science-toolbox.png" alt="Data Science at the Command Line" /></a>
+      <a class="pull-left" href="http://datascienceatthecommandline.com"><img class="media-object" src="assets/img/data-science-at-the-command-line.png" alt="Data Science at the Command Line" /></a>
     </div>
     <div class="col-xs-12 col-md-7">
       <div class="intro">
+        <p>
+In this practical guide, you'll learn how to leverage the power of the command line for doing data science. By combining small, yet powerful, command-line tools, you can quickly obtain, scrub, explore, and model your data. Even if you're already comfortable processing data with R or Python, being able to integrate the command line into your existing workflow will make you a more efficient and productive data scientist.
+
+On this website, you'll find links 
+
+<a class="btn btn-primary btn-sm" href="http://shop.oreilly.com/product/0636920032823.do" role="button" target="_blank"><span class="glyphicon glyphicon-download"></span> Buy e-book</a>
+        </p>
         <div class="media-heading">
-          Data Science at the Command Line
+          Free Webcast
         </div>
         <p>
-
+		August 20, 2014. 
+<a class="btn btn-primary btn-sm" href="http://www.oreilly.com/pub/e/3115" role="button" target="_blank"><span class="glyphicon glyphicon-pencil"></span> Sign up for webcast</a>
         </p>
-        <p>
+        <div class="media-heading">
+          Tutorial at Strata NYC 2014
+        </div>
+		<p>
 
-        </p>
+
+
+<a class="btn btn-primary btn-sm" href="http://strataconf.com/stratany2014/public/schedule/detail/36204" role="button" target="_blank"><span class="glyphicon glyphicon-file"></span> Read more about tutorial</a>
+		</p>
       </div>
     </div>
   </div>
+  <hr />
+  <h3>
+    Setting up the Data Science Toolbox for the Webcast
+  </h3>
+  <p>
+  First, make sure that you have both <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> and <a href="http://www.vagrantup.com/downloads.html">Vagrant</a> (version 1.6+) installed. Then, in order to download and launch the Data Science Toolbox, you run the following commands in your terminal / command prompt:</p>
+  <p>
+<div class="highlight"><pre><span class="gp">$</span> vagrant init data-science-toolbox/data-science-at-the-command-line
+<span class="gp">$</span> vagrant up
+</pre></div>
+</p>
 </body>
 </html>
