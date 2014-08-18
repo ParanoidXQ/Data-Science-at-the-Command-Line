@@ -32,9 +32,9 @@ img.screenshot {
 }
 
 /* line 25, ../../_sass/main.sass */
-h1 {
-  display: none;
-}
+/*h1 {*/
+  /*display: none;*/
+/*}*/
 
 /* line 28, ../../_sass/main.sass */
 h1, h2, h3, .media-heading, li strong, a.btn {
@@ -56,7 +56,7 @@ h2 {
 /* line 37, ../../_sass/main.sass */
 h3 {
   font-size: 1.57143em;
-  line-height: 2.18182em;
+  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
@@ -170,7 +170,7 @@ p > code {
 
 /* line 112, ../../_sass/main.sass */
 .highlight {
-  width: 95%;
+  width: 98%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -182,7 +182,7 @@ p > code {
 .highlight pre {
   font-family: "Ubuntu Mono";
   font-size: 1em;
-  line-height: 1.71429em;
+  line-height: 1em;
   -webkit-border-radius: 0.5em 0.5em;
   -moz-border-radius: 0.5em / 0.5em;
   border-radius: 0.5em / 0.5em;
