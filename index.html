@@ -35,7 +35,7 @@
       </h1>
       <hr />
       <p>
-      <em>Data Science at the Command Line is a <a href="http://www.dpbolvw.net/8c108uoxuowBJIIJHELBDDEICDLK?url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F0636920032823.do%3Fcmp%3Daf-strata-books-videos-product_cj_9781491947852_%2525zp&cjsku=0636920032823">book</a> written by <a href="http://jeroenjanssens.com">Jeroen Janssens</a>. This website contains information about <a href="#workshop">upcoming events</a>, instructions on how to <a href="#dst">install the Data Science Toolbox</a>, and an overview of all the <a href="#tools">command-line tools</a> discussed in the book.</em>
+      <em>Data Science at the Command Line is a <a href="http://www.dpbolvw.net/8c108uoxuowBJIIJHELBDDEICDLK?url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F0636920032823.do%3Fcmp%3Daf-strata-books-videos-product_cj_9781491947852_%2525zp&cjsku=0636920032823">book</a> written by <a href="http://jeroenjanssens.com">Jeroen Janssens</a>. This website contains information about <a href="#workshop">upcoming events</a>, instructions on how to <a href="#dst">how to get started with the Docker image</a>, and an overview of all the <a href="#tools">command-line tools</a> discussed in the book.</em>
       </p>
       <hr />
       <div class="row">
@@ -73,123 +73,37 @@
       </p>
       <hr />
       <a name="dst"></a>
-      <h2>Installing the Data Science Toolbox</h2>
+      <h2>Getting started with the Docker image</h2>
+      <p>
+      Because the book discusses more than 80 command-line tools, many of which have very particular installation instructions, it would take you the better part of the day to get started. To get you up and running quickly, whether you're on Linux, MacOS, or Windows, we created a <a href="https://hub.docker.com/r/datascienceworkshops/data-science-at-the-command-line/">Docker image</a> that contains all the tools pre-installed.</p></p>To install the Docker image, you first need to <a href="https://www.docker.com/products/docker">download and install Docker</a> itself and then run the following command on your terminal or command prompt (don't type the dollar sign):
+      </p>
 
-      <p>In both the book and the webcast we use <a href="#tools">many different command-line tools</a>.  The distribution of GNU/Linux that we assume, Ubuntu, comes with a whole bunch of command-line tools pre-installed.  Moreover, Ubuntu offers many packages that contain other, relevant command-line tools.  Installing these packages yourself is not too difficult.  However, we also use command-line tools that are not available as packages and require a more manual, and more involved, installation. In order to acquire the necessary command-line tools without having to go through the involved installation process of each, we encourage you to install the Data Science Toolbox.</p>
-
-<p>The Data Science Toolbox is a virtual environment that allows you to get started doing data science in minutes. The default version comes with commonly used software for data science, including the Python scientific stack and R together with its most popular packages. Additional software and data bundles are easily installed. These bundles can be specific to a certain book, course, or organization. You can read more about the Data Science Toolbox in general at <a href="http://datasciencetoolbox.org">http://datasciencetoolbox.org</a>.</p>
-
-<p>While there exists a bundle for this book, which contains all the data, scripts, and command-line tools used in this book, we have also created a pre-bundled Data Science Toolbox specifically for this book. The following five steps describe how to install it.</p>
-
-<h3>Step 1: Download and Install VirtualBox</h3>
-
-<p>Browse to the Virtualbox download page (<a href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a>) and download the appropriate binary for your operating system.  Open the binary and follow the installations instructions.</p>
-
-<h3 id="_step_2_download_and_install_vagrant">Step 2: Download and Install Vagrant</h3>
-<div class="paragraph"><p>Similarly to Step 1, browse to the Vagrant (HashiCorp, 2014) download page (<a href="http://www.vagrantup.com/downloads.html">http://www.vagrantup.com/downloads.html</a>) and download the appropriate binary. Open the binary and follow the installations instructions. If you already have Vagrant installed, please make sure that it&#8217;s version 1.5 or higher.</p></div>
-
-<h3 id="_step_3_download_and_start_the_data_science_toolbox">Step 3: Download and Start the Data Science Toolbox</h3>
-<p>Open a terminal (known as the command prompt in Microsoft Windows). Create a directory, for example <em>MyDataScienceToolbox</em>, and navigate to it by typing:</p>
-
-<div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="gp">$</span> mkdir MyDataScienceToolbox
-<span class="gp">$</span> <span class="nb">cd </span>MyDataScienceToolbox
+<div class="listingblock"><div class="content">
+<div class="highlight"><pre><span></span><span class="gp">$</span> docker pull datascienceworkshops/data-science-at-the-command-line
 </pre></div></div></div>
 
-<div class="paragraph"><p>In order to initialize the Data Science Toolbox, run the following command:</p></div>
-<div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="gp">$</span> vagrant init data-science-toolbox/data-science-at-the-command-line
+      <p>
+      You can start a Docker container as follows (remember the directory from which you run this):
+      </p>
+
+<div class="listingblock"><div class="content">
+		<div class="highlight"><pre><span></span><span class="gp">$</span> docker run --rm -v<span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/data <span class="se">\</span>
+&gt; -it datascienceworkshops/data-science-at-the-command-line
 </pre></div></div></div>
+      <p>
+      Please note that those are backticks, not single quotes. You're now inside a Linux environment (Alpine Linux, to be exact) with all the necessary command-line tools installed. The directory from which you started the container is mapped to the <code>/data</code> directory. This enables you to get data in and out of the container.  
+If the following command produces an enthusiastic cow, then you know everything is working correctly:
+      </p>
 
-<p>This creates a file named <em>Vagrantfile</em>. This is a configuration file that tells Vagrant how to launch the virtual machine. This file contains a lot of lines that are commented out. A minimal version is:</p>
-          
-<div class="highlight"><pre><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;data-science-toolbox/data-science-at-the-command-line&quot;</span>
-<span class="k">end</span>
-</pre></div>
-
-<div class="paragraph"><p>By running the following command, the Data Science Toolbox will be downloaded and booted.</p></div>
-<div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="gp">$</span> vagrant up
+<div class="listingblock"><div class="content">
+<div class="highlight"><pre><span></span><span class="gp">$</span> cowsay <span class="s2">&quot;Let&#39;s go!&quot;</span>
 </pre></div></div></div>
-<p>If everything went well, then you now have a Data Science Toolbox running on your local machine.</p>
-
-
-<p>If you ever see the message <code>default: Warning: Connection timeout. Retrying...</code> printed repeatedly, then it may be that the virtual machine is waiting for input. This may happen when the virtual machine has not been properly shut down. In order to find out what&#8217;s wrong, add the following lines to <em>Vagrantfile</em> before the last <code>end</code> statement:</p>
-
-<div class="highlight"><pre>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&quot;virtualbox&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
-    <span class="n">vb</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="kp">true</span>
-  <span class="k">end</span>
-</pre></div>
-
-<p>This will cause VirtualBox to show a screen. Once the virtual machine has booted and you have identified the problem, you can remove these lines from <em>Vagrantfile</em>. The username and password are both <em>vagrant</em>.</p> 
-
-<p>Here's a slightly more elaborate <em>Vagrantfile</em>:</p>
-
-
-  <div class="highlight"><pre><span class="no">Vagrant</span><span class="o">.</span><span class="n">require_version</span> <span class="s2">&quot;&gt;= 1.5.0&quot;</span>                                         <span class="c1"></span>
-<span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;data-science-toolbox/data-science-at-the-command-line&quot;</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;forwarded_port&quot;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">8000</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">8000</span>              <span class="c1"></span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&quot;virtualbox&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
-    <span class="n">vb</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="kp">true</span>                                                          <span class="c1"></span>
-    <span class="n">vb</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">2048</span>                                                       <span class="c1"></span>
-    <span class="n">vb</span><span class="o">.</span><span class="n">cpus</span> <span class="o">=</span> <span class="mi">2</span>                                                            <span class="c1"></span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
 
 <p>
-This file, which you can <a href="downloads/Vagrantfile">download here</a>, ensures that Vagrant: 
+Enjoy!
+</p>
 
-<ul>
-  <li>Is at least at version 1.5.0.</li>
-  <li>Forwards port 8000, which is useful if you want to view a figure you created.</li>
-  <li>Launches a graphical user interface.</li>
-  <li>Uses 2 GB of memory.</li>
-  <li>Uses 2 CPUs.</li>
-</ul>
-
-<p>
-You can view more configuration option at <a href="http://docs.vagrantup.com/v2">http://docs.vagrantup.com/v2</a>.</p>
-
-<h3>Step 4: Log in (on Linux and Mac OS X)</h3>
-<p>If you are running Linux, Mac OS X, or some other UNIX-like operating system, you can log in to the Data Science Toolbox by running the following command in a terminal:</p>
-
-<div class="highlight"><pre><span class="gp">$</span> vagrant ssh
-</pre></div>
-
-<p>After a few seconds you will be greeted with the following message:</p>
-
-<div class="highlight"><pre><span class="go">Welcome to the Data Science Toolbox for Data Science at the Command Line</span>
-
-<span class="go">Based on Ubuntu 14.04 LTS (GNU/Linux 3.13.0-24-generic x86_64)</span>
-
-<span class="go"> * Data Science at the Command Line: http://datascienceatthecommandline.com</span>
-<span class="go"> * Data Science Toolbox:             http://datasciencetoolbox.org</span>
-<span class="go"> * Ubuntu documentation:             http://help.ubuntu.com</span>
-<span class="go">Last login: Tue Jul 22 19:33:16 2014 from 10.0.2.2</span>
-</pre></div>
-
-<h3>Step 4: Log in (on Microsoft Windows)</h3>
-
-<p>If you are running Microsoft Windows, you need to either run Vagrant with a graphical user interface (see above on how to set that up) or use a third-party application in order to log in to the Data Science Toolbox. We recommend PuTTY for this. Browse to the PuTTY download page (<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>) and download <em>putty.exe</em>. Run PuTTY, and enter the following values:</p>
-<ul>
-  <li>Host Name (or IP address): 127.0.0.1</li>
-  <li>Port: 2222</li>
-  <li>Connection type: SSH</li>
-</ul>
-<p>If you want, you can save these values as a session by clicking the <em>Save</em> button, so that you do not need to enter these values again. Click the <em>Open</em> button and enter <em>vagrant</em> for both the username and the password.</p>
-
-<h3>Step 5: Get the Data and Scripts</h3>
-
-<div class="paragraph"><p>Currently, the Data Science Toolbox does not contain all the data and scripts. An update will be uploaded once the book is finished. For now, in order to obtain the data and scripts, you run the following:</p></div>
-<div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="gp">$</span> cd ~/book
-<span class="gp">$</span> git pull
-</pre></div></div></div>
-
-
+<hr />
 <a name="tools"></a>
 <h2 id="_list_of_command_line_tools">List of Command-line Tools</h2>
 <div class="sectionbody">
